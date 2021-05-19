@@ -12,8 +12,14 @@ public class Bootstrap {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
         SimpleAopBean bean = context.getBean(SimpleAopBean.class);
-        bean.testB();
+        bean.boo();
         System.out.println(bean.getClass().getSimpleName());
+
+
+        SimpleChildAopBean bean2 = context.getBean(SimpleChildAopBean.class);
+        bean2.boo();
+        bean2.testC();
+        System.out.println(bean2.getClass().getSimpleName());
     }
 
 }
